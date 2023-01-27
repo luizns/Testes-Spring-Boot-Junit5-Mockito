@@ -3,7 +3,7 @@ package com.github.luizns.apispring.services.impl;
 import com.github.luizns.apispring.domain.User;
 import com.github.luizns.apispring.domain.dto.UserDTO;
 import com.github.luizns.apispring.repositories.UserRepository;
-import com.github.luizns.apispring.services.exceptions.DataIntegratyViolationException;
+import com.github.luizns.apispring.services.exceptions.DataIntegrityViolationException;
 import com.github.luizns.apispring.services.exceptions.ObjectNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -115,7 +115,7 @@ class UserServiceImplTest {
             optionalUser.get().setId(2L);
             service.create(userDTO);
         } catch (Exception ex) {
-            assertEquals(DataIntegratyViolationException.class, ex.getClass());
+            assertEquals(DataIntegrityViolationException.class, ex.getClass());
             assertEquals(EMAIL_JA_CADASTRADO_NO_SISTEMA, ex.getMessage());
         }
 
@@ -143,7 +143,7 @@ class UserServiceImplTest {
             optionalUser.get().setId(2L);
             service.update(userDTO);
         } catch (Exception ex) {
-            assertEquals(DataIntegratyViolationException.class, ex.getClass());
+            assertEquals(DataIntegrityViolationException.class, ex.getClass());
             assertEquals(EMAIL_JA_CADASTRADO_NO_SISTEMA, ex.getMessage());
         }
 

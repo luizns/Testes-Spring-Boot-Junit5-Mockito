@@ -1,6 +1,6 @@
 package com.github.luizns.apispring.resources.exceptions;
 
-import com.github.luizns.apispring.services.exceptions.DataIntegratyViolationException;
+import com.github.luizns.apispring.services.exceptions.DataIntegrityViolationException;
 import com.github.luizns.apispring.services.exceptions.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +22,8 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
-    @ExceptionHandler(DataIntegratyViolationException.class)
-    public ResponseEntity<StandardError> dataIntegratyViolationException(DataIntegratyViolationException ex, HttpServletRequest request) {
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<StandardError> dataIntegrityViolationException(DataIntegrityViolationException ex, HttpServletRequest request) {
 
         StandardError error = new StandardError(LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());

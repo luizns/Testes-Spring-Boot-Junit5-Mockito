@@ -4,7 +4,7 @@ import com.github.luizns.apispring.domain.User;
 import com.github.luizns.apispring.domain.dto.UserDTO;
 import com.github.luizns.apispring.repositories.UserRepository;
 import com.github.luizns.apispring.services.UserService;
-import com.github.luizns.apispring.services.exceptions.DataIntegratyViolationException;
+import com.github.luizns.apispring.services.exceptions.DataIntegrityViolationException;
 import com.github.luizns.apispring.services.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
     private void findByEmaill(UserDTO obj) {
         Optional<User> user = repository.findByEmail(obj.getEmail());
         if (user.isPresent() && !user.get().getId().equals(obj.getId())) {
-            throw new DataIntegratyViolationException("Email já cadastrado no sistema");
+            throw new DataIntegrityViolationException("Email já cadastrado no sistema");
         }
     }
 }

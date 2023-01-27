@@ -80,7 +80,7 @@ class UserResourceTest {
         assertEquals(ResponseEntity.class, response.getClass());
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(ArrayList.class, response.getBody().getClass());
-        assertEquals(UserDTO.class,response.getBody().get(INDEX).getClass());
+        assertEquals(UserDTO.class, response.getBody().get(INDEX).getClass());
 
         assertEquals(ID, response.getBody().get(INDEX).getId());
         assertEquals(NAME, response.getBody().get(INDEX).getName());
@@ -89,7 +89,16 @@ class UserResourceTest {
     }
 
     @Test
-    void create() {
+    void whenCreateThenReturnCreated() {
+        when(service.create(any())).thenReturn(user);
+
+        ResponseEntity<UserDTO> response = resource.create(userDTO);
+
+        assertEquals(ResponseEntity.class, response.getClass());
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertNotNull(response.getHeaders().get("Location"));
+
+
     }
 
     @Test

@@ -65,7 +65,7 @@ URL: ```http://localhost:8080```
 }
 ```
 
-### Plataforma
+### Ref: Plataforma de Cursos
 
-[**Udemy Autor:** Valdir Cezar](https://www.udemy.com/course/testes-com-junit-5-mockito-e-spring-boot-rest-apis/)
+[**Udemy - Autor:** Valdir Cezar](https://www.udemy.com/course/testes-com-junit-5-mockito-e-spring-boot-rest-apis/)
 

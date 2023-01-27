@@ -148,8 +148,15 @@ class UserServiceImplTest {
         }
 
     }
+
     @Test
-    void delete(){}
+    void deleteWithSuccess() {
+        when(repository.findById(anyLong())).thenReturn(optionalUser);
+        doNothing().when(repository).deleteById(anyLong());
+        service.delete(ID);
+        verify(repository, times(1)).deleteById(anyLong());
+    }
+
 
     private void startUser() {
         user = new User(ID, NAME, EMAIL, PASSWORD);
